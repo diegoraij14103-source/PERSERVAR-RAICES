@@ -1,0 +1,94 @@
+// Base de datos de estados (completa — pega aquí el arreglo completo que te pasé antes)
+const estadosMexico = [
+  {
+    nombre: "Aguascalientes",
+    region: "Centro",
+    trajeTipico: {
+      mujer: "Blusa bordada con falda larga roja, rebozo de colores vivos.",
+      hombre: "Camisa blanca, pantalón oscuro y sombrero de ala ancha."
+    },
+    danzaCaracteristica: "Danza de la Boda Tradicional"
+  },
+  {
+    nombre: "Baja California",
+    region: "Norte",
+    trajeTipico: {
+      mujer: "Vestido largo con bordados regionales y rebozo.",
+      hombre: "Pantalón y camisa tradicional, chaleco y sombrero."
+    },
+    danzaCaracteristica: "Danza del Venado"
+  },
+  // Continúa con los 30 estados restantes...
+];
+
+// Navegación entre secciones
+document.querySelectorAll('#menu-inferior button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const seccionId = btn.getAttribute('data-seccion');
+    document.getElementById(seccionId).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Sección 1 tarjetas interactivas
+document.querySelectorAll('.tarjeta').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+    const textId = btn.getAttribute('aria-controls');
+    const text = document.getElementById(textId);
+    if (text) {
+      text.hidden = expanded;
+    }
+  });
+});
+
+// Directorio estados - búsqueda y filtro
+const buscador = document.getElementById('buscador');
+const filtroRegion = document.getElementById('filtro-region');
+const resultados = document.getElementById('resultados');
+
+function mostrarEstados(estados) {
+  resultados.innerHTML = '';
+  if (estados.length === 0) {
+    resultados.innerHTML = '<p>No se encontraron resultados.</p>';
+    return;
+  }
+  estados.forEach(estado => {
+    const card = document.createElement('article');
+    card.className = 'card-estado';
+    card.tabIndex = 0;
+
+    card.innerHTML = `
+      <h3>${estado.nombre}</h3>
+      <p><strong>Región:</strong> ${estado.region}</p>
+      <p><strong>Traje típico mujer:</strong> ${estado.trajeTipico.mujer}</p>
+      <p><strong>Traje típico hombre:</strong> ${estado.trajeTipico.hombre}</p>
+      <p><strong>Danza característica:</strong> ${estado.danzaCaracteristica}</p>
+    `;
+    resultados.appendChild(card);
+  });
+}
+
+function filtrarYBuscar() {
+  const texto = buscador.value.toLowerCase();
+  const region = filtroRegion.value;
+
+  const filtrados = estadosMexico.filter(e => {
+    const coincideTexto =
+      e.nombre.toLowerCase().includes(texto) ||
+      e.trajeTipico.mujer.toLowerCase().includes(texto) ||
+      e.trajeTipico.hombre.toLowerCase().includes(texto) ||
+      e.danzaCaracteristica.toLowerCase().includes(texto);
+    const coincideRegion = region === '' || e.region === region;
+    return coincideTexto && coincideRegion;
+  });
+
+  mostrarEstados(filtrados);
+}
+
+buscador.addEventListener('input', filtrarYBuscar);
+filtroRegion.addEventListener('change', filtrarYBuscar);
+
+document.addEventListener('DOMContentLoaded', () => {
+  mostrarEstados(estadosMexico);
+});
