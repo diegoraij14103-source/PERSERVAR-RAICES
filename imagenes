@@ -1,0 +1,50 @@
+const estadosMexico = [
+  {
+    nombre: "Chiapas",
+    region: "Sur/Sureste",
+    trajeTipico: {
+      mujer: "Blusa blanca con bordados coloridos, falda larga negra.",
+      hombre: "Camisa blanca, pantalón negro y cinturón tejido.",
+      imagenMujer: "assets/images/chiapas_traje_mujer.jpg",
+      imagenHombre: "assets/images/chiapas_traje_hombre.jpg"
+    },
+    danzaCaracteristica: "Danza de los Parachicos y Chiapaneca",
+    imagenDanza: "assets/images/chiapas_danza_parachicos.jpg"
+  },
+  {
+    nombre: "Jalisco",
+    region: "Occidente",
+    trajeTipico: {
+      mujer: "Vestido de charro colorido con grandes cintas.",
+      hombre: "Traje de charro tradicional con sombrero ancho.",
+      imagenMujer: "assets/images/jalisco_traje_mujer.jpg",
+      imagenHombre: "assets/images/jalisco_traje_hombre.jpg"
+    },
+    danzaCaracteristica: "Jarabe Tapatío",
+    imagenDanza: "assets/images/jalisco_jarabe_tapatio.jpg"
+  },
+  {
+    nombre: "Oaxaca",
+    region: "Sur/Sureste",
+    trajeTipico: {
+      mujer: "Tehuana: huipil bordado y falda amplia con enagua.",
+      hombre: "Camisa blanca y pantalón negro con sombrero.",
+      imagenMujer: "assets/images/oaxaca_traje_mujer.jpg",
+      imagenHombre: "assets/images/oaxaca_traje_hombre.jpg"
+    },
+    danzaCaracteristica: "Flor de Piña",
+    imagenDanza: "assets/images/oaxaca_flor_de_pina.jpg"
+  },
+  {
+    nombre: "Veracruz",
+    region: "Sur/Sureste",
+    trajeTipico: {
+      mujer: "Blusa blanca con encajes y falda larga azul.",
+      hombre: "Camisa blanca y pantalón negro con fajilla roja.",
+      imagenMujer: "assets/images/veracruz_traje_mujer.jpg",
+      imagenHombre: "assets/images/veracruz_traje_hombre.jpg"
+    },
+    danzaCaracteristica: "Son tradicional: música y zapateado festivo",
+    imagenDanza: "assets/images/veracruz_son_tradicional.jpg"
+  },
+];
