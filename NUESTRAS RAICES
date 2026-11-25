@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no" />
+  <title>Preservar Nuestras Raíces</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4B2E1E" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>Preservar Nuestras Raíces</h1>
+    <p>Folclore y Patrimonio de México</p>
+  </header>
+
+  <main>
+    <!-- Sección 1: ¿Por qué preservar? -->
+    <section id="por-que-preservar">
+      <h2>¿Por qué preservar nuestras raíces?</h2>
+      <div class="tarjetas">
+        <button class="tarjeta" aria-expanded="false" aria-controls="razon1" id="btn1">
+          <h3>Identidad y sentido de pertenencia</h3>
+          <p id="razon1" hidden>Raíces indígenas, mestizas y afromexicanas crean cohesión social en festividades y tradición.</p>
+        </button>
+        <button class="tarjeta" aria-expanded="false" aria-controls="razon2" id="btn2">
+          <h3>Registro histórico sin libros</h3>
+          <p id="razon2" hidden>Crónica cultural de oficios como chicleros, arrieros y adaptación regional al clima y recursos.</p>
+        </button>
+        <button class="tarjeta" aria-expanded="false" aria-controls="razon3" id="btn3">
+          <h3>Protección de saberes artesanales y lenguas</h3>
+          <p id="razon3" hidden>Bordadoras, telar de cintura, máscaras y cantos originarios preservan identidad cultural.</p>
+        </button>
+        <button class="tarjeta" aria-expanded="false" aria-controls="razon4" id="btn4">
+          <h3>Diversidad frente a la homogeneización</h3>
+          <p id="razon4" hidden>Riqueza plural y patrimonio vivo que fortalece la cultura mexicana.</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- Sección 2: Directorio estados -->
+    <section id="directorio-estados">
+      <h2>Directorio de los 32 estados de México</h2>
+      <input type="text" id="buscador" placeholder="Buscar por estado, traje o danza..." aria-label="Buscar estados" />
+
+      <select id="filtro-region" aria-label="Filtrar por región">
+        <option value="">Todas las regiones</option>
+        <option value="Norte">Norte</option>
+        <option value="Centro">Centro</option>
+        <option value="Sur/Sureste">Sur/Sureste</option>
+        <option value="Occidente">Occidente</option>
+      </select>
+
+      <div id="resultados" role="list"></div>
+    </section>
+
+    <!-- Sección 3: Galería danzas -->
+    <section id="galeria-danzas">
+      <h2>Galería de danzas emblemáticas</h2>
+      <div class="galeria">
+        <div class="ficha-danza">
+          <h3>Chiapas</h3>
+          <p>Danza de los Parachicos y Chiapaneca</p>
+          <div class="imagen-placeholder">Imagen Aquí</div>
+        </div>
+        <div class="ficha-danza">
+          <h3>Jalisco</h3>
+          <p>Jarabe Tapatío</p>
+          <div class="imagen-placeholder">Imagen Aquí</div>
+        </div>
+        <div class="ficha-danza">
+          <h3>Oaxaca</h3>
+          <p>Flor de Piña</p>
+          <div class="imagen-placeholder">Imagen Aquí</div>
+        </div>
+        <div class="ficha-danza">
+          <h3>Veracruz</h3>
+          <p>Son tradicional: música y zapateado festivo</p>
+          <div class="imagen-placeholder">Imagen Aquí</div>
+        </div>
+        <div class="ficha-danza">
+          <h3>Yucatán</h3>
+          <p>Jarana Yucateca</p>
+          <div class="imagen-placeholder">Imagen Aquí</div>
+        </div>
+        <div class="ficha-danza">
+          <h3>Michoacán</h3>
+          <p>Danza de los Viejitos</p>
+          <div class="imagen-placeholder">Imagen Aquí</div>
+        </div>
+        <div class="ficha-danza">
+          <h3>Morelos</h3>
+          <p>Brinco del Chinelo</p>
+          <div class="imagen-placeholder">Imagen Aquí</div>
+        </div>
+        <div class="ficha-danza">
+          <h3>Sonora/Sinaloa</h3>
+          <p>Danza del Venado</p>
+          <div class="imagen-placeholder">Imagen Aquí</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 4: Marco jurídico -->
+    <section id="marco-juridico">
+      <h2>Marco jurídico e instituciones de salvaguardia</h2>
+      <article>
+        <h3>Marco jurídico</h3>
+        <ul>
+          <li>Constitución Política de México (Arts. 2° y 4°)</li>
+          <li>Ley Federal de Protección del Patrimonio Cultural de los Pueblos y Comunidades Indígenas y Afromexicanas (2022)</li>
+          <li>Ley General de Cultura y Derechos Culturales</li>
+          <li>Ley Federal del Derecho de Autor (Arts. 157, 158 y 160)</li>
+          <li>Convención UNESCO para la salvaguardia del patrimonio cultural inmaterial (2003)</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Instituciones</h3>
+        <ul>
+          <li>Secretaría de Cultura (SIC): Promueve políticas culturales. <a href="https://www.gob.mx/cultura" target="_blank" rel="noopener">Sitio Oficial</a></li>
+          <li>Instituto Nacional de los Pueblos Indígenas (INPI): Protección de comunidades originarias. <a href="https://www.inpi.gob.mx" target="_blank" rel="noopener">Sitio Oficial</a></li>
+          <li>Instituto Nacional de Antropología e Historia (INAH): Salvaguarda patrimonio cultural e histórico. <a href="https://www.inah.gob.mx" target="_blank" rel="noopener">Sitio Oficial</a></li>
+          <li>Instituto Nacional de Bellas Artes (INBAL): Promoción de las artes visuales y escénicas. <a href="https://inba.gob.mx" target="_blank" rel="noopener">Sitio Oficial</a></li>
+          <li>FONART: Fondo para apoyar artesanos mexicanos. <a href="https://fonart.gob.mx" target="_blank" rel="noopener">Sitio Oficial</a></li>
+          <li>Instituto Nacional del Derecho de Autor (INDAUTOR): Protección de derechos culturales. <a href="https://www.indautor.gob.mx" target="_blank" rel="noopener">Sitio Oficial</a></li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <nav id="menu-inferior">
+    <button data-seccion="por-que-preservar" aria-label="Ir a ¿Por qué preservar nuestras raíces?">Inicio</button>
+    <button data-seccion="directorio-estados" aria-label="Ir al directorio de estados">Estados</button>
+    <button data-seccion="galeria-danzas" aria-label="Ir a la galería de danzas">Danzas</button>
+    <button data-seccion="marco-juridico" aria-label="Ir al marco jurídico">Marco Jurídico</button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+:root {
+  --color-terracota: #C46239;
+  --color-indigo: #2E4057;
+  --color-dorado-suave: #D4AF37;
+  --color-fondo-claro: #FFF8F0;
+  --color-texto: #3C2F2F;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-fondo-claro);
+  color: var(--color-texto);
+  line-height: 1.5;
+  font-size: 1rem;
+  padding-bottom: 60px; /* espacio menú inferior */
+}
+
+header {
+  background-color: var(--color-terracota);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 0.5rem 0 0;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Tarjetas de sección 1 */
+.tarjetas {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.tarjeta {
+  background: #fff;
+  border: 2px solid var(--color-terracota);
+  border-radius: 10px;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--color-indigo);
+  cursor: pointer;
+  text-align: left;
+}
+
+.tarjeta p {
+  margin-top: 0.5rem;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--color-texto);
+}
+
+/* Botones menú inferior */
+#menu-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--color-indigo);
+  padding: 0.5rem 0;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+
+#menu-inferior button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  flex-grow: 1;
+  padding: 0.5rem 1rem;
+}
+
+#menu-inferior button:focus,
+#menu-inferior button:hover {
+  background-color: var(--color-dorado-suave);
+  color: var(--color-indigo);
+  border-radius: 4px;
+  outline: none;
+}
+
+/* Sección directorio */
+#directorio-estados {
+  padding: 1rem;
+}
+
+#buscador,
+#filtro-region {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  border: 1.5px solid var(--color-terracota);
+  border-radius: 8px;
+}
+
+/* Tarjetas estados */
+#resultados .card-estado {
+  background-color: #fff;
+  border: 1.5px solid var(--color-terracota);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+#resultados .card-estado:hover,
+#resultados .card-estado:focus {
+  transform: scale(1.02);
+  outline: none;
+  border-color: var(--color-indigo);
+}
+
+.card-estado h3 {
+  margin-top: 0;
+  color: var(--color-indigo);
+}
+
+.card-estado p {
+  margin: 0.25rem 0;
+}
+
+/* Galería seccion 3 */
+#galeria-danzas {
+  padding: 1rem;
+}
+
+.galeria {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+}
+
+.ficha-danza {
+  border: 1.5px solid var(--color-terracota);
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.ficha-danza h3 {
+  margin: 0 0 0.25rem 0;
+  color: var(--color-indigo);
+}
+
+.imagen-placeholder {
+  background-color: var(--color-fondo-claro);
+  border: 1px dashed var(--color-terracota);
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Sección marco jurídico */
+#marco-juridico {
+  padding: 1rem;
+  background-color: #fff;
+  border-top: 2px solid var(--color-terracota);
+}
+
+#marco-juridico h3 {
+  color: var(--color-indigo);
+  margin-bottom: 0.5rem;
+}
+
+#marco-juridico ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+#marco-juridico a {
+  color: var(--color-terracota);
+  text-decoration: underline;
+}
+
+@media(min-width: 768px){
+  .tarjetas {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .tarjeta {
+    flex: 1 1 45%;
+  }
+}
+{
+  "short_name": "RaícesMX",
+  "name": "Preservar Nuestras Raíces: Folclore y Patrimonio de México",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FFF8F0",
+  "theme_color": "#4B2E1E",
+  "orientation": "portrait-primary"
+}
+
+</html>
